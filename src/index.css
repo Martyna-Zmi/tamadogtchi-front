@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+h3, p{
+    font-family: "Droid Sans Mono", serif;
+}
+@theme {
+    --color-topbar: #5A189A;
+    --color-sidebar: #3C096C;
+    --color-footer: #240046;
+    --color-main: #10002B;
+    --color-accent: #9D4EDD;
+    --color-text-primary: #eac5ff;
+    --color-text-secondary: #d4adfc;
+    --color-text-muted: #7B2CBF;
+
+    --font-sans: "Inter", sans-serif;
+
+}
+
