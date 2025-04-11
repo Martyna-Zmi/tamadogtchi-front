@@ -1,3 +1,6 @@
+import {useContext} from "react";
+import {DogContext} from "../context/DogContext.jsx";
+
 const actions = [
     {name: "Throw a ball", points: 2},
     {name: "Belly rubs", points: 3},
@@ -8,12 +11,13 @@ const actions = [
 const buttonStyle = "w-full my-1 text-text-primary border-1 border-purple-800 rounded-2xl p-4 bg-violet-700 hover:bg-violet-900";
 
 export default function PlayOptions(){
+    const {amuseDog} = useContext(DogContext);
     return(
         <div className="flex flex-col flex-wrap justify-center">
             {actions.map((action, key) => {
                 return (
                     <div key={key}>
-                        <button className={buttonStyle}>{action.name}</button>
+                        <button onClick={()=>amuseDog(action.points)} className={buttonStyle}>{action.name}</button>
                     </div>
                 )
             })}

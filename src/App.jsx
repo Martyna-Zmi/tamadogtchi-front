@@ -8,6 +8,7 @@ import DogImage from "../components/DogImage.jsx";
 function App() {
     const { dogs, setDogs, setFoods, setCurrentDog, currentDog, isDisplayPlay, setIsDisplayPlay } = useContext(DogContext);
     const [error, setError] = useState(null);
+    //const [isFirstLoad, setIsFirstLoad] = useState(true);
     useEffect(() => {
         document.title = "Tamadogtchi";
     }, []);
@@ -15,7 +16,10 @@ function App() {
     useEffect(() => {
         fetch("http://localhost:8080/dogs")
             .then(response => response.json())
-            .then(data => setDogs(data))
+            .then(data => {
+                setDogs(data);
+                setCurrentDog(data[0]);
+            })
             .catch(()=>setError("couldn't load dogs"));
     },[]);
 
@@ -25,9 +29,9 @@ function App() {
             .then(data => setFoods(data))
             .catch(()=>setError("couldn't load foods"));
     },[]);
-    useEffect(() => {
-        setCurrentDog(dogs[0])
-    }, [dogs]);
+    // useEffect(() => {
+    //     setCurrentDog(dogs[0])
+    // }, [dogs]);
   return (
       <div className="h-screen flex flex-col">
           {/* Topbar */}
