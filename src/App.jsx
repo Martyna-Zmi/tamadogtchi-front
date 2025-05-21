@@ -8,7 +8,6 @@ import DogImage from "../components/DogImage.jsx";
 function App() {
     const { dogs, setDogs, setFoods, setCurrentDog, currentDog, isDisplayPlay, setIsDisplayPlay } = useContext(DogContext);
     const [error, setError] = useState(null);
-    //const [isFirstLoad, setIsFirstLoad] = useState(true);
     useEffect(() => {
         document.title = "Tamadogtchi";
     }, []);
@@ -29,9 +28,6 @@ function App() {
             .then(data => setFoods(data))
             .catch(()=>setError("couldn't load foods"));
     },[]);
-    // useEffect(() => {
-    //     setCurrentDog(dogs[0])
-    // }, [dogs]);
   return (
       <div className="h-screen flex flex-col">
           {/* Topbar */}
@@ -68,7 +64,6 @@ function App() {
                       <DogStats/>
                       <div>
                           <DogImage dog={currentDog}/>
-
                       </div>
                   </div>
                   <footer className="bg-footer p-4 text-center m-0 flex flex-row justify-center">
@@ -81,6 +76,5 @@ function App() {
       </div>
   )
 }
-
 export default App
 
